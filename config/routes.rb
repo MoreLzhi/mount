@@ -1,4 +1,6 @@
 Mountwiki::Application.routes.draw do
+  resources :mounts
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
