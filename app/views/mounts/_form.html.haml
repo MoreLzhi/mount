@@ -1,0 +1,7 @@
+= semantic_form_for @mount, :html => { :class => 'form-horizontal' } do |f|
+  = f.input :title
+  = f.input :description
+  = f.input :elevation
+  = f.input :photo
+  = f.submit nil, :class => 'btn btn-primary'
+  = link_to t('.cancel', :default => t("helpers.links.cancel")), mounts_path, :class => 'btn'
