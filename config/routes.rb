@@ -1,5 +1,8 @@
 Mountwiki::Application.routes.draw do
+  resources :continents
+  resources :regions
   resources :mounts
+  resources :routes
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

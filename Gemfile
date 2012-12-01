@@ -28,6 +28,10 @@ gem 'formtastic'
 gem 'carrierwave'
 gem "mini_magick"
 
+gem 'responders'
+gem 'has_scope'
+gem 'inherited_resources'
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

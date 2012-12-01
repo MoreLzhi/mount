@@ -1,0 +1,29 @@
+- model_class = Route
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human
+
+%p
+  %strong= model_class.human_attribute_name(:title) + ':'
+  %br
+  = @route.title
+%p
+  %strong= model_class.human_attribute_name(:description) + ':'
+  %br
+  = @route.description
+%p
+  %strong= model_class.human_attribute_name(:difficulty) + ':'
+  %br
+  = @route.difficulty
+%p
+  %strong= model_class.human_attribute_name(:photo) + ':'
+  %br
+  = @route.photo
+%p
+  %strong= model_class.human_attribute_name(:mount_id) + ':'
+  %br
+  = @route.mount_id
+
+.form-actions
+  = link_to t('.back', :default => t("helpers.links.back")), routes_path, :class => 'btn'
+  = link_to t('.edit', :default => t("helpers.links.edit")), edit_route_path(@route), :class => 'btn'
+  = link_to t('.destroy', :default => t("helpers.links.destroy")), route_path(@route), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
