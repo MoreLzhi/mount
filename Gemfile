@@ -32,6 +32,10 @@ gem 'responders'
 gem 'has_scope'
 gem 'inherited_resources'
 
+group :development, :test do
+   gem 'debugger'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -44,5 +48,4 @@ gem 'inherited_resources'
 # Deploy with Capistrano
 # gem 'capistrano'
 
-# To use debugger
-# gem 'debugger'
+

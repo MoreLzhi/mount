@@ -1,6 +1,13 @@
 - model_class = Route
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize
+
+= semantic_form_for routes_path, :method => 'get', :html => { :class => 'form-horizontal' } do |a|
+  = select_tag :continent, options_from_collection_for_select(Continent.all, 'id', 'title')
+  = select_tag :region, options_from_collection_for_select(Region.all, 'id', 'title')
+  = select_tag :mount, options_from_collection_for_select(Mount.all, 'id', 'title')
+  = submit_tag "Search", :class => 'btn btn-primary'
+
 %table.table.table-striped
   %thead
     %tr
