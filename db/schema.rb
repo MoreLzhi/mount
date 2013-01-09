@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121201044934) do
+ActiveRecord::Schema.define(:version => 20121225053254) do
 
   create_table "continents", :force => true do |t|
     t.string   "title"
@@ -44,8 +44,10 @@ ActiveRecord::Schema.define(:version => 20121201044934) do
     t.string   "difficulty"
     t.string   "photo"
     t.integer  "mount_id"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "continent_id"
+    t.integer  "region_id"
   end
 
 end

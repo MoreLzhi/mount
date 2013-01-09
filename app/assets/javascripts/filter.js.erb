@@ -1,0 +1,46 @@
+  function refill_select(select, data){
+    select.find('option').remove();
+    select.append("<option value=''></option>");
+    $.each(data, function(index, value) {
+      select.append("<option value='" + value.id + "'>" + value.title + "</option>");
+      console.log(value);
+    });
+  }
+
+
+$(document).ready(function(){
+  $("#route_continent_id").live("change", function(){
+    var continent_id = $(this).val();
+    $.ajax({
+      url: "/api/regions/",
+      data: {continent_id: continent_id},
+      dataType: "json",
+      success: function(data){
+        refill_select($("#route_region_id"), data);
+      }
+    });
+
+    $.ajax({
+      url: "/api/mounts/",
+      data: {continent_id: continent_id},
+      dataType: "json",
+      success: function(data){
+        refill_select($("#route_mount_id"), data);
+      }
+    });
+  });
+
+  $("#route_region_id").live("change", function(){
+      var region_id = $(this).val();
+      $.ajax({
+        url: "/api/mounts/",
+        data: {region_id: region_id},
+        dataType: "json",
+        success: function(data){
+          refill_select($("#route_mount_id"), data);
+        }
+      });
+    });
+
+  
+})

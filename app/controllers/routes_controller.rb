@@ -1,6 +1,7 @@
 class RoutesController < ApplicationController
   inherit_resources
   actions :all, :except => [ :index ]
+  respond_to :json, :js, :html
 
   def index
     if params[:continent]
@@ -16,5 +17,11 @@ class RoutesController < ApplicationController
       @routes = Route.all
     end    
     render
+  end
+
+  def filter
+    params[:route].each {|key, param| params[:route].delete(key) if param == "" }    
+    @routes = Route.where(params[:route]).all
+    render :layout => false 
   end
 end

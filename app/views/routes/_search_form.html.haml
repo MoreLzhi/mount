@@ -1,0 +1,5 @@
+= semantic_form_for Route.new, :url => "/filter", :remote => true, :method => :get, :html => { :class => 'form-horizontal' } do |f|
+  = f.select :continent_id, options_from_collection_for_select(Continent.all, 'id', 'title'), :include_blank => true
+  = f.select :region_id, options_from_collection_for_select(Region.all, 'id', 'title'), :include_blank => true
+  = f.select :mount_id, options_from_collection_for_select(Mount.all, 'id', 'title'), :include_blank => true
+  = submit_tag "Search", :class => 'btn btn-primary'

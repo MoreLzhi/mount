@@ -2,35 +2,16 @@
 .page-header
   %h1=t '.title', :default => model_class.model_name.human.pluralize
 
-= semantic_form_for routes_path, :method => 'get', :html => { :class => 'form-horizontal' } do |a|
-  = select_tag :continent, options_from_collection_for_select(Continent.all, 'id', 'title')
-  = select_tag :region, options_from_collection_for_select(Region.all, 'id', 'title')
-  = select_tag :mount, options_from_collection_for_select(Mount.all, 'id', 'title')
-  = submit_tag "Search", :class => 'btn btn-primary'
-
+= render "search_form"
 %table.table.table-striped
   %thead
     %tr
-      %th= model_class.human_attribute_name(:id)
-      %th= model_class.human_attribute_name(:title)
-      %th= model_class.human_attribute_name(:description)
+      %th= model_class.human_attribute_name(:mount)
       %th= model_class.human_attribute_name(:difficulty)
+      %th= model_class.human_attribute_name(:title)
       %th= model_class.human_attribute_name(:photo)
-      %th= model_class.human_attribute_name(:mount_id)
-      %th= model_class.human_attribute_name(:created_at)
+
       %th=t '.actions', :default => t("helpers.actions")
-  %tbody
-    - @routes.each do |route|
-      %tr
-        %td= link_to route.id, route_path(route)
-        %td= route.title
-        %td= route.description
-        %td= route.difficulty
-        %td= route.photo
-        %td= route.mount_id
-        %td=l route.created_at
-        %td
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_route_path(route), :class => 'btn btn-mini'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), route_path(route), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
+  = render partial: "routes_list", :locals => {routes: @routes}
 
 = link_to t('.new', :default => t("helpers.links.new")), new_route_path, :class => 'btn btn-primary'
