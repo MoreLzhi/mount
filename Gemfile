@@ -32,6 +32,9 @@ gem 'responders'
 gem 'has_scope'
 gem 'inherited_resources'
 
+gem 'devise'
+gem 'cancan'
+
 group :development, :test do
    gem 'debugger'
 end
