@@ -34,6 +34,9 @@ gem 'inherited_resources'
 
 gem 'devise'
 gem 'cancan'
+gem "rolify", ">= 3.2.0"
+
+gem 'cells'
 
 group :development, :test do
    gem 'debugger'

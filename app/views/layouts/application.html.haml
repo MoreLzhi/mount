@@ -18,38 +18,21 @@
 
 
   %body
-    .navbar.navbar-fluid-top
-      .navbar-inner
-        .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="#") Mountwiki
-          .container.nav-collapse
-            %ul.nav
-              - if user_signed_in?
-                %li
-                  = current_user.email
-                  = link_to('Logout', destroy_user_session_path, :method => :delete)
-              - else
-                %li
-                  = link_to('Login', new_user_session_path)
-    .container-fluid
-
-      .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-        .span9
-          = yield
-    
-      %footer
-        %p &copy; Company 2012
+    .wrapper
+      .container-fluid
+        .span1.logo
+          %a.brand(href="/") All_Routes
+        .span2.offset9=render_cell :login, :show
+      .container-fluid.main_content
+        .row-fluid
+          .span3
+            .well.sidebar-nav
+              =render_cell :menu, :left
+          .span9
+            =render_cell :menu, :top  
+            = yield    
+    %footer
+      =render_cell :footer, :show
     /
       Javascripts
       \==================================================

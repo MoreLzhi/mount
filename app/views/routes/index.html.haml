@@ -1,17 +1,4 @@
-- model_class = Route
 .page-header
-  %h1=t '.title', :default => model_class.model_name.human.pluralize
 
 = render "search_form"
-%table.table.table-striped
-  %thead
-    %tr
-      %th= model_class.human_attribute_name(:mount)
-      %th= model_class.human_attribute_name(:difficulty)
-      %th= model_class.human_attribute_name(:title)
-      %th= model_class.human_attribute_name(:photo)
-
-      %th=t '.actions', :default => t("helpers.actions")
-  = render partial: "routes_list", :locals => {routes: @routes}
-
-= link_to t('.new', :default => t("helpers.links.new")), new_route_path, :class => 'btn btn-primary'
+= render partial: "routes_list", :locals => {routes: @routes}

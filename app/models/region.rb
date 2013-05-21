@@ -2,6 +2,7 @@ class Region < ActiveRecord::Base
   attr_protected :secret
 
   belongs_to :continent
+  belongs_to :user
   has_many :mounts 
   has_many :routes, :through => :mount
 

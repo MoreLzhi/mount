@@ -1,4 +1,5 @@
 class RoutesController < ApplicationController
+  load_and_authorize_resource
   inherit_resources
   actions :all, :except => [ :index ]
   respond_to :json, :js, :html
@@ -23,5 +24,9 @@ class RoutesController < ApplicationController
     params[:route].each {|key, param| params[:route].delete(key) if param == "" }    
     @routes = Route.where(params[:route]).all
     render :layout => false 
+  end
+
+  def search
+    @routes = Route.order(:title).where("name like ?", "%#{params[:query]}%") if params[:query].present?
   end
 end

@@ -1,12 +1,7 @@
-%tbody
-  - routes.each do |route|
-    %tr
-      %td= route.mount.title
-      %td= route.difficulty
-      %td= link_to route.title, route
-      %td= link_to "фото", route.photo.url      
-      %td
-        -if can? :manage, route
-          = link_to t('.edit', :default => t("helpers.links.edit")), edit_route_path(route), :class => 'btn btn-mini'
-          = link_to t('.destroy', :default => t("helpers.links.destroy")), route_path(route), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
-
+- routes.each do |route|
+  .row-fluid.route_list_item
+    .span1= image_tag route.photo.thumb.url
+    .span6
+      = link_to "#{route.mount.title} + #{route.title}", route
+      %br
+      %strong= route.difficulty

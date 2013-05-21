@@ -3,15 +3,7 @@ class Route < ActiveRecord::Base
   belongs_to :mount
   belongs_to :region
   belongs_to :continent
-  
-  #name
-  #difficult
-  #description
-  #подход
-  #has_many photos
-  #has_may schemas
-  #has_may comments
-
+  belongs_to :user
 
   mount_uploader :photo, PhotoUploader
 end
