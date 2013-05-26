@@ -40,6 +40,11 @@ gem 'cells'
 
 group :development, :test do
    gem 'debugger'
+   gem 'rspec-rails', '~>2.13.2'
+end
+
+group :test do
+	gem 'rspec-rails-mocha', '~> 0.3.1', :require => false
 end
 
 # To use ActiveModel has_secure_password
