@@ -22,7 +22,6 @@
       .container-fluid
         .span1.logo
           %a.brand(href="/") All_Routes
-        .span2.offset9=render_cell :login, :show
       .container-fluid.main_content
         .row-fluid
           .span3
@@ -32,7 +31,7 @@
             =render_cell :menu, :top  
             = yield    
     %footer
-      =render_cell :footer, :show
+      -# render_cell :footer, :show
     /
       Javascripts
       \==================================================

@@ -1,6 +1,4 @@
 Mountwiki::Application.routes.draw do
-  devise_for :users
-
   resources :continents
   resources :regions
   resources :mounts
